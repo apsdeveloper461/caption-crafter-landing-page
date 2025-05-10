@@ -22,8 +22,14 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 px-6 md:px-10 lg:px-20 bg-background theme-transition">
-      <div className="max-w-6xl mx-auto">
+    <section id="testimonials" className="py-20 px-6 md:px-10 lg:px-20 relative theme-transition">
+      {/* Professional gradient background */}
+      <div className="absolute inset-0 bg-background"></div>
+      <div className="absolute inset-0 gradient-bg-subtle"></div>
+      <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-background to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background to-transparent"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             What Our <span className="gradient-text">Users Are Saying</span>
@@ -38,7 +44,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-card text-card-foreground p-6 rounded-lg shadow-md border border-border hover:border-brand-purple/0 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group hover-card"
+              className="bg-card text-card-foreground p-6 rounded-lg shadow-md border border-border hover:border-brand-purple/0 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group hover-card cursor-pointer professional-glass"
             >
               {/* Animated border effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

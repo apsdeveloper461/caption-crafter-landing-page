@@ -4,11 +4,14 @@ import { Button } from "@/components/ui/button";
 export const CTABanner = () => {
   return (
     <section className="py-16 px-6 md:px-10 lg:px-20 relative overflow-hidden theme-transition">
-      <div className="absolute inset-0 gradient-bg opacity-90"></div>
+      {/* Professional gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-purple to-brand-vivid-purple opacity-90"></div>
       
       {/* Animated background elements */}
       <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
       <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-white/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-20 left-20 w-36 h-36 bg-white/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10 reveal">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 animate-scale-in">
@@ -19,7 +22,7 @@ export const CTABanner = () => {
         </p>
         <Button 
           size="lg" 
-          className="bg-white text-brand-purple hover:bg-gray-100 font-bold text-lg px-8 py-6 hover-lift animate-slide-up group hover-border-btn relative overflow-hidden"
+          className="bg-white text-brand-purple hover:bg-gray-100 font-bold text-lg px-8 py-6 hover-lift animate-slide-up group hover-border-btn relative overflow-hidden cursor-pointer"
           style={{ animationDelay: '0.4s' }}
         >
           <span>Try for Free — No Credit Card Required</span>

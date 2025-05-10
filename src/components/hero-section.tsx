@@ -5,11 +5,14 @@ import { Play } from "lucide-react";
 export const HeroSection = () => {
   return (
     <section className="py-20 px-6 md:px-10 lg:px-20 relative overflow-hidden theme-transition">
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-light-purple/20 to-transparent dark:from-brand-purple/5 dark:to-transparent -z-10"></div>
+      {/* Enhanced gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-light-purple/30 via-transparent to-brand-purple/10 dark:from-brand-purple/10 dark:via-transparent dark:to-brand-vivid-purple/5 -z-10"></div>
       
       {/* Animated background elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-brand-purple/10 dark:bg-brand-purple/5 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-40 right-20 w-24 h-24 bg-brand-vivid-purple/10 dark:bg-brand-vivid-purple/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.3s' }}></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-vivid-purple/10 dark:bg-brand-vivid-purple/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-40 left-20 w-28 h-28 bg-brand-purple/10 dark:bg-brand-purple/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.7s' }}></div>
       
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         <div className="flex-1 text-center lg:text-left space-y-6 animate-slide-up">
@@ -22,11 +25,11 @@ export const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-            <Button size="lg" className="gradient-bg text-white hover:opacity-90 font-bold text-lg hover-lift">
+            <Button size="lg" className="gradient-bg text-white hover:opacity-90 font-bold text-lg hover-lift hover-border-btn">
               Try for Free
             </Button>
             
-            <Button variant="outline" size="lg" className="font-medium text-lg hover-scale">
+            <Button variant="outline" size="lg" className="font-medium text-lg hover-scale hover-border-btn">
               <Play size={18} className="mr-2" />
               See How It Works
             </Button>
