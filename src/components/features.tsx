@@ -31,13 +31,13 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="features" className="py-20 px-6 md:px-10 lg:px-20 bg-gray-50">
+    <section id="features" className="py-20 px-6 md:px-10 lg:px-20 bg-secondary/30 dark:bg-secondary/10 theme-transition">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Why Choose <span className="gradient-text">CaptionCrafter</span>?
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
             It's simple. We've designed CaptionCrafter to be your go-to social media assistant. 
             Whether you're posting for fun or business, get captions that increase engagement and make your posts shine.
           </p>
@@ -47,13 +47,13 @@ export const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+              className={`bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-border reveal hover-lift ${index % 3 === 0 ? 'reveal-delay-1' : index % 3 === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`}
             >
-              <div className="mb-4 bg-brand-light-purple/50 p-3 inline-block rounded-lg">
+              <div className="mb-4 bg-brand-light-purple/50 dark:bg-brand-purple/20 p-3 inline-block rounded-lg animate-pulse-slow">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-gray-700">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-foreground">{feature.title}</h3>
+              <p className="text-foreground/80">{feature.description}</p>
             </div>
           ))}
         </div>
