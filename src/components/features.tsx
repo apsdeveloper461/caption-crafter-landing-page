@@ -47,8 +47,10 @@ export const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-border reveal hover-lift ${index % 3 === 0 ? 'reveal-delay-1' : index % 3 === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`}
+              className={`bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-border reveal hover-lift hover-card ${index % 3 === 0 ? 'reveal-delay-1' : index % 3 === 1 ? 'reveal-delay-2' : 'reveal-delay-3'} relative overflow-hidden`}
             >
+              {/* Border animation container */}
+              <div className="absolute inset-0 rounded-lg border-2 border-brand-purple/0 transition-all duration-500 hover:border-brand-purple/70 opacity-0 hover:opacity-100"></div>
               <div className="mb-4 bg-brand-light-purple/50 dark:bg-brand-purple/20 p-3 inline-block rounded-lg animate-pulse-slow">
                 {feature.icon}
               </div>

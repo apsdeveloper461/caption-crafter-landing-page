@@ -52,11 +52,11 @@ export const Pricing = () => {
               key={index} 
               className={`bg-card p-8 rounded-lg shadow-lg border ${
                 plan.popular ? 'border-brand-purple' : 'border-border'
-              } relative transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group`}
+              } relative transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group hover-card`}
             >
               {/* Animated border effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 border border-brand-purple/50 rounded-lg animate-pulse-slow"></div>
+                <div className="absolute inset-0 border-2 border-brand-purple/70 rounded-lg animate-pulse-slow"></div>
               </div>
               
               {plan.popular && (
@@ -81,7 +81,7 @@ export const Pricing = () => {
               
               <Button 
                 variant={plan.ctaVariant as "outline" | "default"} 
-                className={`w-full py-6 ${plan.popular ? 'gradient-bg text-white hover:opacity-90' : ''}`}
+                className={`w-full py-6 hover-border-btn ${plan.popular ? 'gradient-bg text-white hover:opacity-90' : ''}`}
               >
                 {plan.cta}
               </Button>

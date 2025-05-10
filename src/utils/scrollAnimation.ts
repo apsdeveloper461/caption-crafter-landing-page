@@ -31,8 +31,31 @@ export const initScrollAnimation = () => {
   // Initial check on load
   setTimeout(reveal, 100);
   
-  // Set up hover animations
+  // Set up hover border animations for cards, buttons and interactive elements
   const setupHoverAnimations = () => {
+    // Cards with animated borders
+    const cards = document.querySelectorAll('.bg-card, .card, .hover-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('hover-border-active');
+      });
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('hover-border-active');
+      });
+    });
+    
+    // Buttons with animated borders (excluding utility buttons like theme toggle)
+    const buttons = document.querySelectorAll('.hover-border-btn, .gradient-bg');
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        button.classList.add('btn-border-active');
+      });
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('btn-border-active');
+      });
+    });
+    
+    // General hover animations
     const hoverItems = document.querySelectorAll('.hover-card, .group');
     hoverItems.forEach(item => {
       item.addEventListener('mouseenter', () => {
@@ -46,7 +69,20 @@ export const initScrollAnimation = () => {
   
   setupHoverAnimations();
   
+  // Re-run hover animations on theme change to ensure they apply to newly rendered elements
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'class' && 
+          (mutation.target === document.documentElement || mutation.target === document.body)) {
+        setupHoverAnimations();
+      }
+    });
+  });
+  
+  observer.observe(document.documentElement, { attributes: true });
+  
   return () => {
     window.removeEventListener('scroll', reveal);
+    observer.disconnect();
   };
 };

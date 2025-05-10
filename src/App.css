@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -31,6 +32,27 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+/* Border animation on hover */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(155, 135, 245, 0.7); }
+  50% { border-color: rgba(155, 135, 245, 0.3); }
+}
+
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(155, 135, 245, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(155, 135, 245, 0.8); }
+}
+
+.hover-border-active {
+  border: 2px solid rgba(155, 135, 245, 0.7) !important;
+  animation: border-pulse 2s infinite, border-glow 2s infinite;
+}
+
+.btn-border-active {
+  box-shadow: 0 0 0 2px rgba(155, 135, 245, 0.7);
+  animation: border-pulse 2s infinite;
 }
 
 .card {

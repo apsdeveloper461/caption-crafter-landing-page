@@ -38,11 +38,11 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-card text-card-foreground p-6 rounded-lg shadow-md border border-border hover:border-brand-purple relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+              className="bg-card text-card-foreground p-6 rounded-lg shadow-md border border-border hover:border-brand-purple/0 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group hover-card"
             >
               {/* Animated border effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 border border-brand-purple/50 rounded-lg animate-pulse-slow"></div>
+                <div className="absolute inset-0 border-2 border-brand-purple rounded-lg animate-pulse-slow"></div>
               </div>
               
               <div className="mb-4">
