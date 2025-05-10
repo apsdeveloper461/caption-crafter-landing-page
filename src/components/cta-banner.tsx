@@ -19,10 +19,11 @@ export const CTABanner = () => {
         </p>
         <Button 
           size="lg" 
-          className="bg-white text-brand-purple hover:bg-gray-100 font-bold text-lg px-8 py-6 hover-lift animate-slide-up" 
+          className="bg-white text-brand-purple hover:bg-gray-100 font-bold text-lg px-8 py-6 hover-lift animate-slide-up group"
           style={{ animationDelay: '0.4s' }}
         >
-          Try for Free — No Credit Card Required
+          <span>Try for Free — No Credit Card Required</span>
+          <span className="absolute inset-0 rounded-md border-2 border-white opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"></span>
         </Button>
       </div>
     </section>

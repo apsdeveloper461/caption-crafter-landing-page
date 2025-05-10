@@ -22,13 +22,13 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 px-6 md:px-10 lg:px-20 bg-white">
+    <section id="testimonials" className="py-20 px-6 md:px-10 lg:px-20 bg-background theme-transition">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             What Our <span className="gradient-text">Users Are Saying</span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
             Don't take our word for it — see why thousands of content creators trust CaptionCrafter 
             to power their social media presence.
           </p>
@@ -38,8 +38,13 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100"
+              className="bg-card text-card-foreground p-6 rounded-lg shadow-md border border-border hover:border-brand-purple relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
             >
+              {/* Animated border effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <div className="absolute inset-0 border border-brand-purple/50 rounded-lg animate-pulse-slow"></div>
+              </div>
+              
               <div className="mb-4">
                 {/* Quote marks */}
                 <svg className="h-8 w-8 text-brand-purple/30" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +52,7 @@ export const Testimonials = () => {
                 </svg>
               </div>
               
-              <p className="text-gray-700 italic mb-6">"{testimonial.quote}"</p>
+              <p className="text-foreground italic mb-6">"{testimonial.quote}"</p>
               
               <div className="flex items-center">
                 <img 
@@ -56,8 +61,8 @@ export const Testimonials = () => {
                   className="w-10 h-10 rounded-full mr-3"
                 />
                 <div>
-                  <p className="font-bold">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="font-bold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-foreground/60">{testimonial.role}</p>
                 </div>
               </div>
             </div>

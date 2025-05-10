@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HeroSection } from "@/components/hero-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { Features } from "@/components/features";
@@ -11,13 +11,26 @@ import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { initScrollAnimation } from "@/utils/scrollAnimation";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Menu, X } from "lucide-react";
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     // Initialize scroll animations
     const cleanup = initScrollAnimation();
     return cleanup;
   }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen theme-transition">
@@ -27,22 +40,37 @@ const Index = () => {
           <h1 className="text-xl font-bold gradient-text">CaptionCrafter</h1>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#how-it-works" className="text-foreground/80 hover:text-brand-purple transition-colors">How It Works</a>
-          <a href="#features" className="text-foreground/80 hover:text-brand-purple transition-colors">Features</a>
-          <a href="#testimonials" className="text-foreground/80 hover:text-brand-purple transition-colors">Testimonials</a>
-          <a href="#pricing" className="text-foreground/80 hover:text-brand-purple transition-colors">Pricing</a>
-          <Button variant="outline" className="ml-2 hover-scale">Log in</Button>
-          <Button className="gradient-bg text-white hover:opacity-90 hover-scale">Sign up</Button>
-          <ThemeToggle />
+        <nav className={`${isMobile ? (mobileMenuOpen ? 'flex' : 'hidden') : 'flex'} ${isMobile ? 'flex-col absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border p-5 space-y-4 shadow-lg' : 'items-center space-x-6'}`}>
+          <a href="#how-it-works" onClick={closeMobileMenu} className="text-foreground/80 hover:text-brand-purple transition-colors">How It Works</a>
+          <a href="#features" onClick={closeMobileMenu} className="text-foreground/80 hover:text-brand-purple transition-colors">Features</a>
+          <a href="#testimonials" onClick={closeMobileMenu} className="text-foreground/80 hover:text-brand-purple transition-colors">Testimonials</a>
+          <a href="#pricing" onClick={closeMobileMenu} className="text-foreground/80 hover:text-brand-purple transition-colors">Pricing</a>
+          
+          {isMobile ? (
+            <div className="flex flex-col space-y-3 pt-2">
+              <Button variant="outline" className="hover-scale w-full" onClick={closeMobileMenu}>Log in</Button>
+              <Button className="gradient-bg text-white hover:opacity-90 hover-scale w-full" onClick={closeMobileMenu}>Sign up</Button>
+              <div className="flex justify-center pt-2">
+                <ThemeToggle />
+              </div>
+            </div>
+          ) : (
+            <>
+              <Button variant="outline" className="ml-2 hover-scale">Log in</Button>
+              <Button className="gradient-bg text-white hover:opacity-90 hover-scale">Sign up</Button>
+              <ThemeToggle />
+            </>
+          )}
         </nav>
         
         <div className="md:hidden flex items-center space-x-3">
           <ThemeToggle />
-          <Button variant="ghost">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+          <Button variant="ghost" onClick={toggleMobileMenu} aria-label="Toggle menu">
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-foreground" />
+            ) : (
+              <Menu className="w-6 h-6 text-foreground" />
+            )}
           </Button>
         </div>
       </header>
