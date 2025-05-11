@@ -78,16 +78,16 @@ const Index = () => {
           {/* Mobile menu buttons */}
           {isMobile ? (
             <div className="flex flex-col space-y-3 pt-2">
-              <Button variant="outline" className="hover-scale w-full" onClick={closeMobileMenu}>Log in</Button>
-              <Button className="gradient-bg text-white hover:opacity-90 hover-scale w-full" onClick={closeMobileMenu}>Sign up</Button>
+              
+              <Button className="gradient-bg text-white hover:opacity-90 hover-scale w-full" onClick={closeMobileMenu}>Try for Free</Button>
               <div className="flex justify-center pt-2">
                 <ThemeToggle />
               </div>
             </div>
           ) : (
             <>
-              <Button variant="outline" className="ml-2 hover-scale">Log in</Button>
-              <Button className="gradient-bg text-white hover:opacity-90 hover-scale">Sign up</Button>
+             
+              <Button className="gradient-bg text-white hover:opacity-90 hover-scale">Try for Free</Button>
               <ThemeToggle />
             </>
           )}

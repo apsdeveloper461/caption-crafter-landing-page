@@ -48,7 +48,7 @@ export const HowItWorks = () => {
                 <p className="text-foreground/80">{step.description}</p>
                 
                 {step.number < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-12 transform -translate-y-1/2">
+                  <div className="hidden md:block absolute top-1/2 -right-[36px] transform -translate-y-1/2">
                     <svg className="w-8 h-8 text-brand-purple animate-pulse-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                     </svg>
