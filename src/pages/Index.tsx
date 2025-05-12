@@ -12,8 +12,9 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { initScrollAnimation } from "@/utils/scrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Menu, X } from "lucide-react";
+import { Captions, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png"; // Adjust the path as necessary
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,8 +69,19 @@ const Index = () => {
         }`}
       >
         <div className="flex items-center">
-          <img src={logo} alt="CaptionCrafter" width={200} />
+          {/* <img src={logo} alt="CaptionCrafter" width={200} /> */}
           {/* <h1 className="text-xl font-bold gradient-text">CaptionCrafter</h1> */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 font-medium text-lg "
+          >
+            <div className=" text-primary-foreground bg-primary  flex size-7 items-center justify-center rounded-md">
+              {/* <GalleryVerticalEnd /> */}
+              <Captions className="size-5" />
+              {/* <Image src="/short-logo.png" width="80" height="80"></Image> */}
+            </div>
+            Caption Crafter.
+          </Link>
         </div>
 
         {/* Navigation */}
@@ -114,21 +126,26 @@ const Index = () => {
           {/* Mobile menu buttons */}
           {isMobile ? (
             <div className="flex flex-col space-y-3 pt-2">
-              <Button
-                className="gradient-bg text-white hover:opacity-90 hover-scale w-full"
-                onClick={closeMobileMenu}
-              >
-                Try for Free
-              </Button>
+              <a href="https://captioncrafter.vercel.app/dashboard">
+                {" "}
+                <Button
+                  className="gradient-bg text-white hover:opacity-90 hover-scale w-full"
+                  onClick={closeMobileMenu}
+                >
+                  Try for Free
+                </Button>
+              </a>
               <div className="flex justify-center pt-2">
                 <ThemeToggle />
               </div>
             </div>
           ) : (
             <>
-              <Button className="gradient-bg text-white hover:opacity-90 hover-scale">
-                Try for Free
-              </Button>
+              <a href="https://captioncrafter.vercel.app/dashboard">
+                <Button className="gradient-bg text-white hover:opacity-90 hover-scale">
+                  Try for Free
+                </Button>
+              </a>
               <ThemeToggle />
             </>
           )}
