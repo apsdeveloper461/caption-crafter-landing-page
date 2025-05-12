@@ -75,7 +75,7 @@ const Index = () => {
             to="/"
             className="flex items-center gap-2 font-medium text-lg "
           >
-            <div className=" text-primary-foreground bg-primary  flex size-7 items-center justify-center rounded-md">
+            <div className=" text-primary-foreground bg-brand-vivid-purple  flex size-7 items-center justify-center rounded-md">
               {/* <GalleryVerticalEnd /> */}
               <Captions className="size-5" />
               {/* <Image src="/short-logo.png" width="80" height="80"></Image> */}
@@ -135,9 +135,9 @@ const Index = () => {
                   Try for Free
                 </Button>
               </a>
-              <div className="flex justify-center pt-2">
+              {/* <div className="flex justify-center pt-2">
                 <ThemeToggle />
-              </div>
+              </div> */}
             </div>
           ) : (
             <>
