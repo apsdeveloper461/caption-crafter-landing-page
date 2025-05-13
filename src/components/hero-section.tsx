@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -46,14 +47,16 @@ export const HeroSection = () => {
               </Button>
             </a>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="font-medium text-lg hover-scale hover-border-btn"
-            >
-              <Play size={18} className="mr-2" />
-              See How It Works
-            </Button>
+            <a href="#demo">
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-medium text-lg hover-scale hover-border-btn"
+              >
+                <Play size={18} className="mr-2" />
+                See How It Works
+              </Button>
+            </a>
           </div>
         </div>
 
